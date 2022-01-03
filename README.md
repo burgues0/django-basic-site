@@ -11,4 +11,5 @@ Praticar o desenvolvimento back-end na web utilizando Django, assim como entende
 
 - Sistema de Login
 
-## Desenvolvido por Victor Pinheiro Palmeira
+## Desenvolvedor
+- Victor Pinheiro Palmeira
