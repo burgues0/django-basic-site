@@ -1,0 +1,52 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>HSInfo Consultar</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sign-in/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+<link href="{% static './bootstrap.min.css' %}" rel="stylesheet">
+
+ 
+    <!-- Custom styles for this template -->
+    <link href="{% static './signin.css' %}" rel="stylesheet">
+  </head>
+  <body class="text-center">
+    
+    <div class="container">
+      <main class="form-signin">
+        <form method="post" action="">
+          {% csrf_token %}
+          {% for message in messages %}
+          <h5>{{message}}</h5>
+          {% endfor %}
+          <h1 class="h3 mb-3 fw-normal">Consultar na database</h1>
+          <div class="form-floating">
+            <input type="text" class="form-control" id="floatingInput" placeholder="1029302" name="consultUserID">
+            <label for="floatingInput">ID</label>
+          </div>
+          <div class="form-floating">
+                {% for user in db %}
+                        {% if user.hsUserID == checkID %}
+                                <div class="form-floating">
+                                        <h3>{{ user.hsUserName }}</h3>
+                                </div>
+                        {% endif %}
+                {% endfor %}
+          </div>
+          <button class="mt-2 w-100 btn btn-lg btn-primary" type="submit">Consultar!</button>
+        </form>
+        <a href="/"><h2 class="h3 mt-3 fw-normal">Registrar na database</h2></a>
+      </main>
+    </div>
+  </body>
+</html>
